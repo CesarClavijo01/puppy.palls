@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { puppyList } from './data.js'
-import '/path-to-app.css'
+
 
 function App() {
 
@@ -21,7 +21,7 @@ function App() {
           {featPupId && (
           <div className='puppyInfo'>
             <h2>{featPup.name}</h2>
-            <ul>
+            <ul className='infoList'>
               <li>{featPup.email}</li>
               <li>{featPup.age}</li>
             </ul>
