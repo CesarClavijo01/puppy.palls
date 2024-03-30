@@ -3,18 +3,29 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { puppyList } from './data.js'
+import '/path-to-app.css'
 
 function App() {
 
   const [puppies, setPuppies] = useState(puppyList);
 
-  console.log("puppyList: ", puppyList);
+  const [featPupId, setFeatPupId] = useState(null);
+
+  const featPup = puppies.find(pup => pup.id === featPupId)
 
   return (
     <>
       <div>
         {puppies.map( puppy => {
-          return <p key={puppy.id}>{puppy.name}</p>})}
+          return <p className='puppyName' onClick={() => {setFeatPupId(puppy.id)}} key={puppy.id}>{puppy.name}</p>})}
+          {featPupId && (
+          <div className='puppyInfo'>
+            <h2>{featPup.name}</h2>
+            <ul>
+              <li>{featPup.email}</li>
+              <li>{featPup.age}</li>
+            </ul>
+          </div>)}
 
       </div>
     </>
